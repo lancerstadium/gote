@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>gote</title>
+    </head>
+    <body>
+        <main class="main">
+            <h1>Vote Info</h1>
+            <h2>Title: {{.vote.Vote.Title}}</h2>
+            <h2>Id: {{.vote.Vote.Id}}</h2>
+            <h2>UserId: {{.vote.Vote.UserId}}</h2>
+            <h2>Type: {{.vote.Vote.Type}}</h2>
+            <h2>Status: {{.vote.Vote.Status}}</h2>
+            <form method="post" action="/vote">
+                <input type="hidden" name="vote_id" value="{{.vote.Vote.Id}}">
+                {{range $key,$value := .vote.Opt}}
+                    <input type="checkbox" name="opt[]" id="customCheck{{$key}}" value="{{$value.Id}}">
+                    <label for="customCheck{{$key}}">{{$value.Name}}</label>
+                {{end}}
+                <button type="submit">Submit</button>
+            </form>
+        </main>
+    </body>
+
+</html>

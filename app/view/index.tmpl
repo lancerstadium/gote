@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>gote</title>
+    </head>
+    <body>
+        <main class="main">
+            <h1>Welcome to Gote!</h1>
+            {{range $key,$value := .vote}}
+                <h2><a href="/vote?id={{$value.Id}}">{{$value.Title}}</a></h2>
+            {{end}}
+        </main>
+    </body>
+
+</html>
